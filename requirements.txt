@@ -1,3 +1,12 @@
 python 3.11.4
 jupyter notebook 6.5.4
 optuna 3.3.0
+selenium
+beautifulsoup4
+requests
+retry
+pandas
+xgboost
+scikit-learn
+matplotlib
+seaborn

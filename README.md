@@ -11,7 +11,7 @@ A Python project for scraping car listings data from an ecommerce site and build
 
 ## Introduction
 
-This project is designed to scrape car listings data from the a website, perform EDA and eventually build a price prediction model from the data.
+This project scrapes car listings data from `jiji.co.ke` and demonstrates exploratory analysis and price prediction.
 
 ## Getting Started
 
@@ -19,14 +19,30 @@ To get started with this project, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install the required Python packages using `pip install -r requirements.txt`.
-3. Run the web scraping script by executing `python webscrap.py`.
+3. Use the `webscrap.py` script to run scraping or model training commands.
 
 ## Usage
 
 ### Web Scraping
 
-To scrape car listings data from the site, you can run the `webscrap.ipynb` script. It will collect data and store it in CSV files.
+Scrape using Selenium scrolling:
 
-### Price prediction. 
+```bash
+python webscrap.py selenium --scrolls 5 --output cars.csv
+```
 
-After loading the data to a csv file, it is then concatenated and used to build a price prediction model using xgboost and optuna for feature analysis. 
+Scrape using the public API:
+
+```bash
+python webscrap.py api --start 1001 --end 1010 --output cars_api.csv
+```
+
+### Price prediction
+
+After collecting CSV files, train a price prediction model:
+
+```bash
+python webscrap.py model cars.csv cars_api.csv
+```
+
+The model uses XGBoost with Optuna for hyperparameter tuning.
